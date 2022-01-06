@@ -11,7 +11,7 @@ class FetchData:ObservableObject{
     @Published var responses = Response()
     
     init(){
-        guard let url = URL(string: "https://newsapi.org/v2/everything?q=migraine+headache&from=2021-12-05&sortBy=publishedAt&apiKey=0f56280d7a164be692d2371c668c569c") else {return}
+        guard let url = URL(string: "https://api.weatherapi.com/v1/forecast.json?key=28489f27d259492e978173941220401&q=Philadelphia&days=7&aqi=no&alerts=no") else {return}
         
         URLSession.shared.dataTask(with: url) { (data, response, errors) in
             guard let data = data else {return}
@@ -31,22 +31,33 @@ class FetchData:ObservableObject{
 
 struct Response: Codable{
     var totalResults : Int = 0
-    var articles : [Article] = [Article]()
+    var forecast : [Forecast] = [Forecast]()
     
 }
 
-struct Article : Codable{
-    var title : String?
-    var url  : URL?
-    var urlToImage : URL?
+struct Forecast : Codable{
+    var date : String?
+    var day  : [Day] = [Day]()
+   
+}
+
+struct Day : Codable{
+    var maxtemp_f : Double?
+    var mintemp_f : Double?
+    var avgtemp_f : Double?
+    var totalprecip_in : Double?
+    var avghumidity : Double?
+    var daily_will_it_snow : Int?
+    var daily_chance_of_snow : Int?
+    var icon : URL?
 }
 
 
 
 // add an extension to the article struct so that we can use an array of articles
 // to dynamically create List.
-extension Article: Identifiable{
-    var id: String {return title!}
+extension Forecast: Identifiable{
+    var id: String {return date!}
 }
 
 
