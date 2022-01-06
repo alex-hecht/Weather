@@ -8,12 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject var fetchData = FetchData()
+    
     var body: some View {
-        Text("Hello World!")
-            .padding()
+        List(fetchData.responses.forecast){forecast in
+            
+            HStack{
+                Text(forecast.date ?? "File not Found" )
+                
+            }
+            
+        }
     }
 }
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
