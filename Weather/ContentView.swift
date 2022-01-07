@@ -12,13 +12,17 @@ struct ContentView: View {
     @StateObject var fetchData = FetchData()
     
     var body: some View {
-        List(fetchData.responses.forecast){forecast in
-            
-            HStack{
-                Text(forecast.date ?? "File not Found" )
+        NavigationView{
+            List(fetchData.responses.forecast){forecast in
+                NavigationLink(
+                    destination: /*@START_MENU_TOKEN@*/Text("Destination")/*@END_MENU_TOKEN@*/,
+                    label: {
+                        Text(forecast.date ?? "File not Found" )
+                    })
+                
+                
                 
             }
-            
         }
     }
 }

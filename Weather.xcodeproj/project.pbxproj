@@ -13,6 +13,7 @@
 		AC9670E52784B71500188C02 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC9670E42784B71500188C02 /* Preview Assets.xcassets */; };
 		AC9670F02784B71600188C02 /* WeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9670EF2784B71600188C02 /* WeatherTests.swift */; };
 		AC9670FB2784B71600188C02 /* WeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9670FA2784B71600188C02 /* WeatherUITests.swift */; };
+		F359CEE22788712C00234D15 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F359CEE12788712C00234D15 /* SwiftUIView.swift */; };
 		F3A4147C278618810051A276 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A4147B278618810051A276 /* File.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		AC9670F62784B71600188C02 /* WeatherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC9670FA2784B71600188C02 /* WeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherUITests.swift; sourceTree = "<group>"; };
 		AC9670FC2784B71600188C02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F359CEE12788712C00234D15 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		F3A4147B278618810051A276 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,8 +103,9 @@
 				AC9670DF2784B71300188C02 /* ContentView.swift */,
 				AC9670E12784B71500188C02 /* Assets.xcassets */,
 				AC9670E62784B71500188C02 /* Info.plist */,
-				AC9670E32784B71500188C02 /* Preview Content */,
 				F3A4147B278618810051A276 /* File.swift */,
+				AC9670E32784B71500188C02 /* Preview Content */,
+				F359CEE12788712C00234D15 /* SwiftUIView.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			files = (
 				AC9670E02784B71300188C02 /* ContentView.swift in Sources */,
 				F3A4147C278618810051A276 /* File.swift in Sources */,
+				F359CEE22788712C00234D15 /* SwiftUIView.swift in Sources */,
 				AC9670DE2784B71300188C02 /* WeatherApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
