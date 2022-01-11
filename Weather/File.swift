@@ -43,12 +43,17 @@ struct Forecast : Codable{
 
 struct ForecastDay : Codable{
     var date : String?
-    var day : Day
+    var hour : [Hour] = [Hour]()
     
 }
 
-struct Day : Codable{
+struct Hour : Codable{
     var condition : Condition
+    var time : String?
+    var temp_f : Double?
+    var chance_of_snow : Double?
+    var chance_of_rain : Double?
+    var feelslike_f : Double?
 }
 
 struct Condition : Codable {
