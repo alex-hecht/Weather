@@ -26,7 +26,7 @@ class FetchData: ObservableObject{
     }
     
 }
-
+//Calling individual variable Response that incl
 struct Response: Codable{
     var location : Location = Location()
     var forecast : Forecast = Forecast()
@@ -57,7 +57,7 @@ struct Hour : Codable{
 }
 
 struct Condition : Codable {
-    var icon : String?
+    var icon : URL?
 }
 
 
