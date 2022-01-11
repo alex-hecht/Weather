@@ -14,13 +14,14 @@ struct ContentView: View {
     var body: some View {
         List(fetchData.responses.forecast){forecast in
             
-            forecast
             HStack{
+                KFImage(condition.icon).resizable()
                 
-                
-                
-                
-            }
+                Text(
+                    
+                    
+                    
+                    }
         }
     }
 }
