@@ -26,21 +26,23 @@ class FetchData: ObservableObject{
     }
     
 }
-//Calling individual variable Response that incl
+//declaring individual class Response that includes all other variables including weather information
 struct Response: Codable{
     var location : Location = Location()
     var forecast : Forecast = Forecast()
 }
+//declaring class named Location that is included in Response that includes 3 vairables chosen by us, Name, region, and country
 struct Location : Codable{
     var name : String?
     var region : String?
     var country : String?
 }
+//declaring class Forecast creates a list of objects
 struct Forecast : Codable{
     var forecastday  : [ForecastDay] = [ForecastDay]()
     
 }
-
+//declaring class forecastday includes 2 variables chosen by us for the project date and hour.
 struct ForecastDay : Codable{
     var date : String?
     var hour : [Hour] = [Hour]()
