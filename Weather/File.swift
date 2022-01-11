@@ -11,7 +11,7 @@ class FetchData: ObservableObject{
     @Published var responses : Response = Response()
     
     init(){
-        guard let url = URL(string: "https://api.weatherapi.com/v1/forecast.json?key=28489f27d259492e978173941220401&q=Philadelphia&days=7&aqi=no&alerts=no") else {return}
+        guard let url = URL(string: "http://api.weatherapi.com/v1/forecast.json?key=28489f27d259492e978173941220401&q=Philadelphia&days=1&aqi=no&alerts=no") else {return}
 
         URLSession.shared.dataTask(with: url) { (data, response, errors) in
             guard let data = data else {return}
