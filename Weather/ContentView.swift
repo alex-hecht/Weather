@@ -6,19 +6,17 @@
 //
 
 import SwiftUI
-
+import struct Kingfisher.KFImage
 struct ContentView: View {
     
     @StateObject var fetchData = FetchData()
     
     var body: some View {
-        NavigationView{
-            List(fetchData.responses.forecast){forecast in
-                NavigationLink(
-                    destination: /*@START_MENU_TOKEN@*/Text("Destination")/*@END_MENU_TOKEN@*/,
-                    label: {
-                        Text(forecast.date ?? "File not Found" )
-                    })
+        List(fetchData.responses.forecast){forecast in
+            
+            forecast
+            HStack{
+                
                 
                 
                 
