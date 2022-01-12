@@ -13,8 +13,15 @@ struct ContentView: View {
     
     var body: some View {
         List(fetchData.responses.forecast.forecastday[0].hour){ hour in
+            HStack{
+                KFImage(hour.condition.icon)
+                VStack{
+                    Text(fetchData.responses.location.name ?? "Location not found" )
+                    Text(fetchData.responses.forecast.forecastday[0].date ?? "Date not found" )
+                }
+            }
             
-            Text("hello")
+            
             
         }
         
