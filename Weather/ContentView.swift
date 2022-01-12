@@ -12,19 +12,15 @@ struct ContentView: View {
     @StateObject var fetchData = FetchData()
     
     var body: some View {
-        List(fetchData.responses.forecast){forecast in
+        List(fetchData.responses.forecast.forecastday[0].hour){ hour in
             
-            HStack{
-                KFImage(condition.icon).resizable()
-                
-                Text(
-                    
-                    
-                    
-                    }
+            Text("hello")
+            
         }
+        
     }
 }
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()

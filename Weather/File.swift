@@ -9,19 +9,29 @@ import Foundation
 
 class FetchData: ObservableObject{
     @Published var responses : Response = Response()
+ //   @Published var forecastDay : ForecastDay = ForecastDay()
+    
     
     init(){
-        guard let url = URL(string: "http://api.weatherapi.com/v1/forecast.json?key=28489f27d259492e978173941220401&q=Philadelphia&days=1&aqi=no&alerts=no") else {return}
+        guard let url = URL(string: "https://api.weatherapi.com/v1/forecast.json?key=28489f27d259492e978173941220401&q=Philadelphia&days=1&aqi=no&alerts=no") else {return}
 
         URLSession.shared.dataTask(with: url) { (data, response, errors) in
             guard let data = data else {return}
-
+            
+            guard let dataAsString = String(data:data, encoding: .utf8) else {return}
+            
+            print(dataAsString)
             let decoder = JSONDecoder()
             if let response = try? decoder.decode(Response.self, from: data) {
                 DispatchQueue.main.async {
                     self.responses = response
+                    //self.forecastDay = response.forecast.forecastday[0]
                 }
             }
+            else{
+                print("no data")
+            }
+            
         }.resume()
     }
     
@@ -39,7 +49,7 @@ struct Location : Codable{
 }
 //declaring class Forecast creates a list of objects
 struct Forecast : Codable{
-    var forecastday  : [ForecastDay] = [ForecastDay]()
+    var forecastday : [ForecastDay] = [ForecastDay]()
     
 }
 //declaring class forecastday includes 2 variables chosen by us for the project date and hour.
@@ -65,8 +75,8 @@ struct Condition : Codable {
 
 // add an extension to the article struct so that we can use an array of articles
 // to dynamically create List.
-extension ForecastDay: Identifiable{
-    var id: String {return date!}
+extension Hour: Identifiable{
+    var id: String {return time!}
 }
 
 

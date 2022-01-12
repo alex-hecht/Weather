@@ -12,8 +12,7 @@ struct SwiftUIView: View {
     @StateObject var fetchData = FetchData()
     
     var body: some View {
-        List(fetchData.responses.forecast){Forecast in
-        }
+        Text("Hello World")
     }
 }
 
