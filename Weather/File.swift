@@ -9,7 +9,7 @@ import Foundation
 
 class FetchData: ObservableObject{
     @Published var responses : Response = Response()
- //   @Published var forecastDay : ForecastDay = ForecastDay()
+    @Published var forecastDay : ForecastDay = ForecastDay()
     
     
     init(){
@@ -25,7 +25,7 @@ class FetchData: ObservableObject{
             if let response = try? decoder.decode(Response.self, from: data) {
                 DispatchQueue.main.async {
                     self.responses = response
-                    //self.forecastDay = response.forecast.forecastday[0]
+                    self.forecastDay = response.forecast.forecastday[0]
                 }
             }
             else{

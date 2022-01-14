@@ -12,7 +12,7 @@ struct ContentView: View {
     @StateObject var fetchData = FetchData()
     
     var body: some View {
-        List(fetchData.responses.forecast.forecastday[0].hour){ hour in
+        List(fetchData.forecastDay.hour){ hour in
             HStack{
                 KFImage(hour.condition.icon)
                 VStack{
