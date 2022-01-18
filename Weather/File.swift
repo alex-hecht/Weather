@@ -69,7 +69,7 @@ struct Hour : Codable{
 }
 
 struct Condition : Codable {
-    var icon : URL?
+    var icon : String?
 }
 
 

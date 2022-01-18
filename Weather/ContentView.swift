@@ -11,10 +11,16 @@ struct ContentView: View {
     
     @StateObject var fetchData = FetchData()
     
+    
     var body: some View {
         List(fetchData.forecastDay.hour){ hour in
             HStack{
-                KFImage(hour.condition.icon)
+                if let test =  hour.condition.icon{
+                    KFImage(URL(string: "https:" + test))
+                }
+                else{
+                    Image("download")
+                }
                 VStack{
                     Text(fetchData.responses.location.name ?? "Location not found" )
                     Text(fetchData.responses.forecast.forecastday[0].date ?? "Date not found" )
