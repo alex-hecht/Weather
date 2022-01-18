@@ -13,24 +13,30 @@ struct ContentView: View {
     
     
     var body: some View {
-        List(fetchData.forecastDay.hour){ hour in
-            HStack{
-                if let test =  hour.condition.icon{
-                    KFImage(URL(string: "https:" + test))
+        NavigationView{
+            List(fetchData.forecastDay.hour){ hour in
+                NavigationLink{
+                    destination:SwiftUIView(hour1 : hour),
+                    label:
+                    HStack{
+                        if let test = hour.condition.icon{
+                            KFImage(URL(string: "https:" + test))
+                        }
+                        else{
+                            Image("download")
+                        }
+                        VStack{
+                            Text(fetchData.responses.location.name ?? "Location not found" )
+                            Text(hour.time ?? "Date not found" )
+                        }
+                    }
+                    
                 }
-                else{
-                    Image("download")
-                }
-                VStack{
-                    Text(fetchData.responses.location.name ?? "Location not found" )
-                    Text(fetchData.responses.forecast.forecastday[0].date ?? "Date not found" )
-                }
+                
+                
+                
             }
-            
-            
-            
         }
-        
     }
 }
 

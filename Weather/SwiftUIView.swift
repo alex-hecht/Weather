@@ -9,15 +9,16 @@ import SwiftUI
 
 struct SwiftUIView: View {
     
-    @StateObject var fetchData = FetchData()
     
+    @StateObject var fetchData = FetchData()
+    var hour1 : Hour
     var body: some View {
-        Text("Hello World")
+       Text("III")
     }
 }
 
 struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
-        SwiftUIView()
+        SwiftUIView(hour1: Hour())
     }
 }
