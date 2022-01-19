@@ -15,31 +15,32 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             List(fetchData.forecastDay.hour){ hour in
-                NavigationLink{
-                    destination:SwiftUIView(hour1 : hour),
-                    label:
-                    HStack{
-                        if let test = hour.condition.icon{
-                            KFImage(URL(string: "https:" + test))
+                NavigationLink(
+                    destination: SwiftUIView(hour : hour),
+                    label: {
+                        HStack{
+                            if let test = hour.condition.icon{
+                                KFImage(URL(string: "https:" + test))
+                            }
+                            else{
+                                Image("download")
+                            }
+                            VStack{
+                                Text(fetchData.responses.location.name ?? "Location not found" )
+                                Text(hour.time ?? "Date not found" )
+                            }
                         }
-                        else{
-                            Image("download")
-                        }
-                        VStack{
-                            Text(fetchData.responses.location.name ?? "Location not found" )
-                            Text(hour.time ?? "Date not found" )
-                        }
+                        
                     }
                     
-                }
-                
-                
+                    
+                    
+                )
                 
             }
         }
     }
 }
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()

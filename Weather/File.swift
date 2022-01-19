@@ -62,10 +62,11 @@ struct ForecastDay : Codable{
 struct Hour : Codable{
     var condition : Condition
     var time : String?
-    var temp_f : Double?
-    var chance_of_snow : Double?
-    var chance_of_rain : Double?
-    var feelslike_f : Double?
+    var temp_f : Double? = 0
+    var chance_of_snow : Double? = 0
+    var chance_of_rain : Double? = 0
+    var feelslike_f : Double? = 0
+   
 }
 
 struct Condition : Codable {

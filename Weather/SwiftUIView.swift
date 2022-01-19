@@ -6,19 +6,35 @@
 //
 
 import SwiftUI
-
+import struct Kingfisher.KFImage
 struct SwiftUIView: View {
     
+    var hour : Hour
     
-    @StateObject var fetchData = FetchData()
-    var hour1 : Hour
     var body: some View {
-       Text("III")
+        VStack{
+            if let test = hour.condition.icon{
+                KFImage(URL(string: "https:" + test))
+                Spacer()
+                
+                
+            }
+            else{
+                Image("download")
+                
+                
+            
+                
+            }
+            Text(hour.time ?? "Time not Found" )
+            Text( "Chance of Snow " + String(hour.chance_of_snow ?? 0.0)  + "%")
+        }
+        
     }
 }
 
 struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
-        SwiftUIView(hour1: Hour())
+        SwiftUIView(hour:(Hour(condition: Condition(icon:"https://cdn.weatherapi.com/weather/64x64/night/116.png"), time: "0", temp_f: 0, chance_of_snow: 0, chance_of_rain: 0, feelslike_f: 0)))
     }
 }
