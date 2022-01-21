@@ -27,7 +27,11 @@ struct SwiftUIView: View {
                 
             }
             Text(hour.time ?? "Time not Found" )
+            Text( "Temperature " + String(hour.temp_f ?? 0.0) +  " degrees")
             Text( "Chance of Snow " + String(hour.chance_of_snow ?? 0.0)  + "%")
+            Text( "Chance of Rain " + String(hour.chance_of_rain ?? 0.0) + "%")
+            Text( "Real Feel " + String(hour.feelslike_f ?? 0.0))
+            Spacer()
         }
         
     }
