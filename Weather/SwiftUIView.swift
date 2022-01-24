@@ -19,36 +19,70 @@ struct SwiftUIView: View {
             VStack{
                 if let test = hour.condition.icon{
                     KFImage(URL(string: "https:" + test))
+                        .resizable()
                         .cornerRadius(/*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/)
+                        .padding()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 300, height: 400)
+                    
+                    
+                    
+                    
+                    
                     Spacer()
                     
                     
                 }
                 else{
-                 
+                    
                     Image("download")
                     
                     
                     
                     
                 }
+                
+            }
+            VStack{
                 Text(hour.time ?? "Time not Found" )
                     .font(.title)
                     .multilineTextAlignment(.leading)
-                Text( "Temperature " + String(hour.temp_f ?? 0.0) +  " degrees F")
-                    .font(.title)
-                    .multilineTextAlignment(.leading)
-                Text( "Chance of Snow " + String(hour.chance_of_snow ?? 0.0)  + "%")
-                    .font(.title)
-                    .multilineTextAlignment(.leading)
-                Text( "Chance of Rain " + String(hour.chance_of_rain ?? 0.0) + "%")
-                    .font(.title)
-                    .multilineTextAlignment(.leading)
-                Text( "Real Feel " + String(hour.feelslike_f ?? 0.0) + "degrees F")
-                    .font(.title)
-                    .multilineTextAlignment(.leading)
-                Spacer()
+                HStack{
+                    Text( "Temperature")
+                        .font(.title)
+                        .multilineTextAlignment(.leading)
+                    
+                    Text(String(hour.temp_f ?? 0.0) +  " F")
+                        .font(.title)
+                        .multilineTextAlignment(.trailing)
+                }
+                HStack{
+                    Text( "Chance of Snow: ")
+                        .font(.title)
+                        .multilineTextAlignment(.leading)
+                    Text( String(hour.chance_of_snow ?? 0.0)  + "%")
+                        .font(.title)
+                        .multilineTextAlignment(.trailing)
+                }
+                HStack{
+                    Text("Chance of Rain")
+                        .font(.title)
+                        .multilineTextAlignment(.leading)
+                    Text( String(hour.chance_of_rain ?? 0.0) + "%")
+                        .font(.title)
+                        .multilineTextAlignment(.trailing)
+                }
+                HStack{
+                    Text( "Real Feel: ")
+                        .font(.title)
+                        .multilineTextAlignment(.leading)
+                    Text(String(hour.feelslike_f ?? 0.0) + " F")
+                        .font(.title)
+                        .multilineTextAlignment(.trailing)
+                }
+               
             }
+          
         }
         .edgesIgnoringSafeArea(.all)
         
