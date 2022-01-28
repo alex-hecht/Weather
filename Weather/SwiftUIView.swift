@@ -8,14 +8,16 @@
 import SwiftUI
 import struct Kingfisher.KFImage
 struct SwiftUIView: View {
-    
+
     var hour : Hour
     
     var body: some View {
+        //creates Zstack to make a background for view
         ZStack{
-            
+            //creates image background from assets
             Image("sky")
             Spacer()
+            //Creates Vstack that stores picture
             VStack{
                 if let test = hour.condition.icon{
                     KFImage(URL(string: "https:" + test))
@@ -34,7 +36,7 @@ struct SwiftUIView: View {
                     
                 }
                 else{
-                    
+                    // shows error image if it doesn't work
                     Image("download")
                     
                     
@@ -43,6 +45,7 @@ struct SwiftUIView: View {
                 }
                 
             }
+            //creates separate Vstack for data
             VStack{
                 Text(hour.time ?? "Time not Found" )
                     .font(.title)

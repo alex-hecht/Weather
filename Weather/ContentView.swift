@@ -14,15 +14,18 @@ struct ContentView: View {
     
     var body: some View {
         
-        
+        //Creates a navigation view
         NavigationView{
+            //Creates list of hour objects
             List(fetchData.forecastDay.hour){ hour in
+                //Creates a navigation link with a destination and label
                 NavigationLink(
                     destination: SwiftUIView(hour : hour),
                     label: {
+                        
                         ZStack{
                                
-                            
+                            //creates Hstack to house the image, date, and location objects
                             HStack{
                                 if let test = hour.condition.icon{
                                     KFImage(URL(string: "https:" + test))
@@ -44,7 +47,7 @@ struct ContentView: View {
                     
                     
                 )
-                
+                //creates title to appear at top of the main view
             }.navigationTitle("Liberty Weather")
             
             
